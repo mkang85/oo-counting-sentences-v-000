@@ -15,12 +15,5 @@ class String
   end
 
   def count_sentences
-    self.split("?").map do |ele|
-      if sentence?
-        ele.split(".")
-      elsif exclamation?
-        ele.split("!")
-      end
-    end
-  end
+    self.split(/\.|\?|\!/).delete_if?{|x| x.length < 2}
 end
